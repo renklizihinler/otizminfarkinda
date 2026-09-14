@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renkli Zihinler — Otizm Farkındalığı</title>
+<meta name="description" content="Otizm spektrum bozukluğu hakkında doğru bilgi, yaygın yanlış inanışlar, güncel istatistikler ve otizmli bireylerin yanında nasıl duracağınızla ilgili rehber.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 50 C 25 20, 40 80, 50 50 C 60 20, 75 80, 90 50' fill='none' stroke='%230F766E' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101B2D;
+    --text:#1C2A3A;
+    --muted:#5B6B7A;
+    --bg:#FFFFFF;
+    --bg-alt:#F1F5F4;
+    --border:#E2E8E7;
+    --teal:#0F766E;
+    --teal-dark:#0B5A54;
+    --indigo:#4338CA;
+    --amber:#B45309;
+    --rose:#DB2777;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:'Work Sans', sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    color:var(--ink);
+    line-height:1.15;
+    margin:0 0 .5em 0;
+    font-weight:600;
+  }
+
+  p{margin:0 0 1em 0;}
+  a{color:var(--teal-dark);}
+  img,svg{max-width:100%;display:block;}
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible{
+    outline:3px solid var(--indigo);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .measure{max-width:62ch;}
+
+  /* ---------- Skip link ---------- */
+  .skip-link{
+    position:absolute;
+    left:-999px;
+    top:auto;
+    background:var(--ink);
+    color:#fff;
+    padding:10px 16px;
+    z-index:100;
+    border-radius:0 0 6px 0;
+  }
+  .skip-link:focus{
+    left:0;
+    top:0;
+  }
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:saturate(180%) blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--ink);
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-mark{width:26px;height:26px;flex:none;}
+
+  nav.main-nav ul{
+    list-style:none;
+    display:flex;
+    gap:28px;
+    margin:0;
+    padding:0;
+  }
+  nav.main-nav a{
+    color:var(--text);
+    text-decoration:none;
+    font-size:0.95rem;
+    font-weight:500;
+    padding:6px 2px;
+    border-bottom:2px solid transparent;
+  }
+  nav.main-nav a:hover{border-bottom-color:var(--teal);}
+
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:8px 10px;
+    font-size:1rem;
+    cursor:pointer;
+    color:var(--ink);
+  }
+
+  .spectrum-rule{
+    height:4px;
+    width:100%;
+    background:linear-gradient(90deg, var(--indigo), var(--teal) 35%, var(--amber) 68%, var(--rose));
+  }
+
+  @media (max-width:760px){
+    nav.main-nav{
+      display:none;
+      width:100%;
+      order:3;
+    }
+    nav.main-nav.open{display:block;}
+    nav.main-nav ul{
+      flex-direction:column;
+      gap:0;
+      border-top:1px solid var(--border);
+    }
+    nav.main-nav a{
+      display:block;
+      padding:14px 24px;
+    }
+    .header-inner{flex-wrap:wrap;}
+    .nav-toggle{display:inline-block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:72px 0 56px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4vw, 3.1rem);
+    max-width:14ch;
+  }
+  .hero .lede{
+    font-size:1.1rem;
+    color:var(--muted);
+    max-width:46ch;
+  }
+  .cta-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:28px;
+  }
+  .btn{
+    display:inline-block;
+    padding:13px 22px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:0.98rem;
+    text-decoration:none;
+    border:2px solid transparent;
+    cursor:pointer;
+    font-family:'Work Sans', sans-serif;
+  }
+  .btn-primary{
+    background:var(--teal-dark);
+    color:#fff;
+  }
+  .btn-primary:hover{background:var(--ink);}
+  .btn-secondary{
+    background:transparent;
+    color:var(--ink);
+    border-color:var(--border);
+  }
+  .btn-secondary:hover{border-color:var(--ink);}
+
+  .wave-figure{
+    position:relative;
+  }
+  .wave-figure svg{width:100%;height:auto;}
+  .wave-path{
+    fill:none;
+    stroke-width:3.5;
+    stroke-linecap:round;
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:draw 1.8s ease-out forwards;
+  }
+  .wave-path.w2{animation-delay:.15s;}
+  .wave-path.w3{animation-delay:.3s;}
+  .wave-path.w4{animation-delay:.45s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  .wave-caption{
+    font-size:0.85rem;
+    color:var(--muted);
+    margin-top:8px;
+  }
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .wave-figure{order:-1;}
+  }
+
+  /* ---------- Awareness banner ---------- */
+  .banner{
+    background:var(--ink);
+    color:#fff;
+    padding:18px 0;
+  }
+  .banner .wrap{
+    display:flex;
+    gap:16px;
+    align-items:baseline;
+    flex-wrap:wrap;
+  }
+  .banner strong{color:#fff; font-family:'Fraunces', serif; font-weight:600;}
+  .banner span{color:#C9D3D8; font-size:0.95rem;}
+
+  /* ---------- Sections ---------- */
+  section{
+    padding:80px 0;
+  }
+  section.alt{background:var(--bg-alt);}
+  .section-head{
+    max-width:60ch;
+    margin-bottom:40px;
+  }
+  .section-head h2{font-size:clamp(1.6rem, 3vw, 2.1rem);}
+  .section-head p{color:var(--muted); font-size:1.05rem;}
+
+  /* Otizm nedir */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:56px;
+  }
+  .trait-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .trait-list li{
+    padding-left:18px;
+    border-left:3px solid var(--teal);
+  }
+  .trait-list h3{
+    font-family:'Work Sans', sans-serif;
+    font-size:1.02rem;
+    font-weight:700;
+    color:var(--ink);
+    margin:0 0 4px 0;
+  }
+  .trait-list p{margin:0; color:var(--muted); font-size:0.97rem;}
+
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  /* Mit / Gerçek */
+  .mf-list{
+    display:flex;
+    flex-direction:column;
+    border-top:1px solid var(--border);
+  }
+  .mf-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    padding:28px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .mf-col p{margin:0;}
+  .mf-label{
+    display:block;
+    font-weight:700;
+    font-size:0.85rem;
+    margin-bottom:6px;
+  }
+  .mf-myth .mf-label{color:var(--muted);}
+  .mf-myth p{color:var(--muted);}
+  .mf-fact .mf-label{color:var(--teal-dark);}
+  .mf-fact{border-left:2px solid var(--border); padding-left:32px;}
+
+  @media (max-width:640px){
+    .mf-row{grid-template-columns:1fr; gap:10px;}
+    .mf-fact{border-left:none; padding-left:0; border-top:1px dashed var(--border); padding-top:14px;}
+  }
+
+  /* İstatistikler */
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:40px;
+  }
+  .stat{
+    padding-top:18px;
+    border-top:2px solid var(--ink);
+  }
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-size:clamp(2.4rem, 5vw, 3.4rem);
+    color:var(--indigo);
+    display:block;
+    line-height:1;
+    margin-bottom:10px;
+  }
+  .stat:nth-child(2) .num{color:var(--amber);}
+  .stat:nth-child(3) .num{color:var(--rose);}
+  .stat p{color:var(--muted); font-size:0.95rem; margin:0;}
+  .stat-note{
+    margin-top:36px;
+    font-size:0.9rem;
+    color:var(--muted);
+    max-width:60ch;
+  }
+  @media (max-width:760px){
+    .stat-grid{grid-template-columns:1fr; gap:32px;}
+  }
+
+  /* Destek */
+  .help-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px 40px;
+  }
+  .help-list li{
+    padding-left:20px;
+    border-left:3px solid var(--amber);
+  }
+  .help-list h3{
+    font-family:'Work Sans', sans-serif;
+    font-weight:700;
+    font-size:1.02rem;
+    color:var(--ink);
+    margin:0 0 4px 0;
+  }
+  .help-list p{margin:0; color:var(--muted); font-size:0.96rem;}
+  @media (max-width:760px){
+    .help-list{grid-template-columns:1fr;}
+  }
+
+  /* Kaynaklar */
+  .resource-list{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border-top:1px solid var(--border);
+  }
+  .resource-list li{
+    list-style:none;
+    padding:20px 0;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .resource-list h3{
+    font-family:'Work Sans', sans-serif;
+    font-size:1rem;
+    font-weight:700;
+    margin:0;
+    color:var(--ink);
+  }
+  .resource-list p{margin:2px 0 0 0; color:var(--muted); font-size:0.93rem;}
+
+  /* İletişim */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+  form.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .field label{
+    display:block;
+    font-size:0.9rem;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .field input,
+  .field textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    font-family:'Work Sans', sans-serif;
+    font-size:1rem;
+    color:var(--text);
+    background:#fff;
+  }
+  .field textarea{resize:vertical; min-height:120px;}
+  .form-note{font-size:0.85rem; color:var(--muted);}
+
+  @media (max-width:760px){
+    .contact-wrap{grid-template-columns:1fr;}
+  }
+
+  /* Footer */
+  footer{
+    background:var(--ink);
+    color:#C9D3D8;
+    padding:48px 0 28px;
+  }
+  footer h3{color:#fff; font-size:1.05rem;}
+  footer a{color:#C9D3D8;}
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-bottom:28px;
+    border-bottom:1px solid rgba(255,255,255,0.15);
+  }
+  .footer-links{
+    display:flex;
+    gap:24px;
+    list-style:none;
+    padding:0;
+    margin:0;
+    flex-wrap:wrap;
+  }
+  .footer-bottom{
+    padding-top:20px;
+    font-size:0.85rem;
+    color:#8B99A5;
+  }
+</style>
+</head>
+<body>
+
+<a href="#icerik" class="skip-link">İçeriğe geç</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" role="img" aria-label="Renkli Zihinler logosu">
+        <path d="M10 50 C 25 20, 40 80, 50 50 C 60 20, 75 80, 90 50" fill="none" stroke="#0F766E" stroke-width="9" stroke-linecap="round"/>
+      </svg>
+      Renkli Zihinler
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" id="navToggle">Menü</button>
+    <nav class="main-nav" id="main-nav" aria-label="Ana menü">
+      <ul>
+        <li><a href="#otizm-nedir">Otizm Nedir</a></li>
+        <li><a href="#mitler-gercekler">Mitler &amp; Gerçekler</a></li>
+        <li><a href="#istatistikler">Rakamlarla Otizm</a></li>
+        <li><a href="#nasil-destek">Nasıl Destek Olursunuz</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="spectrum-rule" aria-hidden="true"></div>
+</header>
+
+<main id="icerik">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Her zihin kendi frekansında var olur.</h1>
+        <p class="lede">Otizm tek bir şekilde görünmez. Bu sayfa; otizmi doğru bilgiyle tanımak, yaygın yanlış inanışları düzeltmek ve otizmli bireylerin yanında nasıl duracağımızı öğrenmek için hazırlandı.</p>
+        <div class="cta-row">
+          <a href="#otizm-nedir" class="btn btn-primary">Otizmi tanı</a>
+          <a href="#nasil-destek" class="btn btn-secondary">Nasıl destek olabilirim?</a>
+        </div>
+      </div>
+      <figure class="wave-figure">
+        <svg viewBox="0 0 500 260" role="img" aria-label="Farklı genlik ve renklerde dört dalga çizgisi, otizmin spektrum çeşitliliğini simgeliyor">
+          <path class="wave-path w1" d="M0,150 C60,80 110,220 170,150 C230,80 280,220 340,150 C380,105 430,195 500,150" stroke="#4338CA"/>
+          <path class="wave-path w2" d="M0,120 C50,170 120,70 180,120 C240,170 300,70 360,120 C410,155 450,95 500,120" stroke="#0F766E"/>
+          <path class="wave-path w3" d="M0,190 C70,160 100,220 160,190 C230,155 270,225 340,190 C390,168 440,210 500,190" stroke="#B45309"/>
+          <path class="wave-path w4" d="M0,90 C40,60 90,120 150,90 C210,58 260,122 330,90 C390,64 440,116 500,90" stroke="#DB2777"/>
+        </svg>
+        <figcaption class="wave-caption">Dört farklı dalga, dört farklı deneyim: spektrum böyle bir şey.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <div class="wrap">
+      <strong>2 Nisan — Dünya Otizm Farkındalığı Günü.</strong>
+      <span>Bu sayfayı paylaşarak farkındalığı bugün büyütebilirsiniz.</span>
+    </div>
+  </div>
+
+  <!-- OTİZM NEDİR -->
+  <section id="otizm-nedir">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Otizm nedir?</h2>
+        <p>Kısa ve öz: bir hastalık değil, bir farklılık.</p>
+      </div>
+      <div class="about-grid">
+        <div class="measure">
+          <p>Otizm spektrum bozukluğu (OSB), beynin bilgiyi işleme, iletişim kurma ve dünyayı deneyimleme biçimini etkileyen, doğuştan gelen nörogelişimsel bir farklılıktır. "Spektrum" kelimesi boşuna kullanılmıyor: otizmli iki birey birbirine hiç benzemeyebilir.</p>
+          <p>Kimi otizmli birey konuşarak iletişim kurar, kimi yazılı ya da görsel araçları tercih eder; kimi yoğun günlük destek ihtiyacı duyar, kimi tamamen bağımsız bir yaşam sürer. Otizm "tedavi edilmesi" gereken bir hastalık değildir; erken tanı ve doğru destek, kişinin kendi güçlü yönlerini ortaya çıkarmasına yardımcı olur.</p>
+        </div>
+        <ul class="trait-list">
+          <li>
+            <h3>İletişim çeşitliliği</h3>
+            <p>Konuşma, yazı, görsel kartlar veya destekleyici teknolojiler — iletişim şekli kişiden kişiye değişir.</p>
+          </li>
+          <li>
+            <h3>Duyusal farklılıklar</h3>
+            <p>Işık, ses, doku veya kalabalık; duyusal uyaranlar bazı otizmli bireyler için çok daha yoğun hissedilebilir.</p>
+          </li>
+          <li>
+            <h3>Derinlemesine ilgi alanları</h3>
+            <p>Bir konuya yoğun ve sürdürülebilir ilgi, çoğu zaman güçlü bir odaklanma becerisine dönüşür.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MİTLER VE GERÇEKLER -->
+  <section id="mitler-gercekler" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Mitler ve gerçekler</h2>
+        <p>Otizm hakkında en sık duyduğumuz yanlış inanışları, güncel bilgiyle karşılaştırıyoruz.</p>
+      </div>
+      <div class="mf-list">
+        <div class="mf-row">
+          <div class="mf-col mf-myth"><span class="mf-label">Mit</span><p>Otizmli bireyler duygu kuramaz ya da empati yapamaz.</p></div>
+          <div class="mf-col mf-fact"><span class="mf-label">Gerçek</span><p>Duygularını farklı şekilde ifade ederler; empati genellikle vardır, gösterim biçimi farklıdır.</p></div>
+        </div>
+        <div class="mf-row">
+          <div class="mf-col mf-myth"><span class="mf-label">Mit</span><p>Otizm bir hastalıktır ve "tedavi" ile geçer.</p></div>
+          <div class="mf-col mf-fact"><span class="mf-label">Gerçek</span><p>Otizm, ömür boyu süren nörogelişimsel bir farklılıktır; hedef "tedavi" değil, doğru destektir.</p></div>
+        </div>
+        <div class="mf-row">
+          <div class="mf-col mf-myth"><span class="mf-label">Mit</span><p>Otizmli bireylerin hiçbiri konuşamaz.</p></div>
+          <div class="mf-col mf-fact"><span class="mf-label">Gerçek</span><p>İletişim biçimi büyük farklılık gösterir; sözel, sınırlı sözel veya sözel olmayan iletişim bir arada bulunabilir.</p></div>
+        </div>
+        <div class="mf-row">
+          <div class="mf-col mf-myth"><span class="mf-label">Mit</span><p>Otizm yalnızca çocukları etkiler.</p></div>
+          <div class="mf-col mf-fact"><span class="mf-label">Gerçek</span><p>Otizm yaşam boyu sürer; pek çok yetişkin de otizm spektrumundadır, çoğu zaman tanısız kalır.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İSTATİSTİKLER -->
+  <section id="istatistikler">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Rakamlarla otizm</h2>
+        <p>Güncel, kaynaklı veriler — farkındalık, doğru bilgiyle başlar.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat">
+          <span class="num">1/31</span>
+          <p>ABD'de 8 yaşındaki çocuklarda görülen otizm oranı (CDC, 2022 verisine dayanan Nisan 2025 raporu).</p>
+        </div>
+        <div class="stat">
+          <span class="num">1/127</span>
+          <p>Dünya Sağlık Örgütü'nün 2021 için dünya genelinde tahmin ettiği otizm görülme oranı (tüm yaşlar).</p>
+        </div>
+        <div class="stat">
+          <span class="num">3×+</span>
+          <p>CDC’nin 2022 verilerine göre 8 yaşındaki erkek çocukların otizm tanısı/tespiti alma olasılığı kız çocuklardan 3 kattan fazladır.</p>
+        </div>
+      </div>
+      <p class="stat-note">Not: Bu rakamlar Türkiye'ye ait değildir. 1/31, CDC'nin 2022 yılında ABD'deki 16 ADDM topluluğunda izlenen 8 yaş çocuklarına ilişkin verisidir; 1/127 ise WHO'nun 2021 küresel tahminidir. Türkiye'ye özgü güncel oranlar için Sağlık Bakanlığı ve güvenilir ulusal kaynaklara bakılmalıdır.</p>
+      <p class="stat-note">
+        Kaynaklar:
+        <a href="https://www.cdc.gov/autism/data-research/" target="_blank" rel="noopener noreferrer">CDC — Autism Data & Statistics</a> ·
+        <a href="https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders" target="_blank" rel="noopener noreferrer">WHO — Autism</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- NASIL DESTEK OLURSUNUZ -->
+  <section id="nasil-destek" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Nasıl destek olabilirsiniz?</h2>
+        <p>Büyük adımlara gerek yok; günlük hayatta yapılabilecek somut şeyler var.</p>
+      </div>
+      <ul class="help-list">
+        <li>
+          <h3>Kimlik temelli dili öğrenin</h3>
+          <p>"Otizmli birey" ifadesini tercih edin, kişinin kendi hakkında nasıl konuşulmasını istediğini sorun.</p>
+        </li>
+        <li>
+          <h3>Duyusal ihtiyaçlara saygı gösterin</h3>
+          <p>Işık, ses ya da dokunma hassasiyetleri kişiden kişiye değişir; bunu yargılamadan kabul edin.</p>
+        </li>
+        <li>
+          <h3>Sabırla ve önyargısız dinleyin</h3>
+          <p>İletişim şekli farklı olabilir ama duygular ve ihtiyaçlar aynı derecede gerçektir.</p>
+        </li>
+        <li>
+          <h3>Kapsayıcı ortamlar kurun</h3>
+          <p>Okulda, işyerinde ya da sosyal etkinliklerde otizmli bireylerin katılımını kolaylaştıracak küçük düzenlemeler yapın.</p>
+        </li>
+        <li>
+          <h3>Yerel derneklere destek olun</h3>
+          <p>Gönüllü olun, bağış yapın ya da yalnızca güvenilir bilgiyi çevrenizle paylaşın.</p>
+        </li>
+        <li>
+          <h3>Aileleri yalnız bırakmayın</h3>
+          <p>Otizmli bireyin ailesine yönelik küçük bir yardım teklifi, büyük bir fark yaratabilir.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- KAYNAKLAR -->
+  <section id="kaynaklar">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Kaynaklar</h2>
+        <p>Daha fazla bilgi ve destek için başvurabileceğiniz yerler. (Kendi bölgenizdeki güncel iletişim bilgilerini buraya ekleyebilirsiniz.)</p>
+      </div>
+      <ul class="resource-list">
+        <li>
+          <div>
+            <h3>Rehberlik Araştırma Merkezi (RAM)</h3>
+            <p>Tanı sonrası eğitim yönlendirmesi ve bireyselleştirilmiş eğitim planı için il/ilçenizdeki RAM ile iletişime geçebilirsiniz.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Çocuk gelişim ve ergen psikiyatrisi uzmanları</h3>
+            <p>Değerlendirme, tanı ve aile danışmanlığı için ilk başvuru noktası.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Yerel otizm dernek ve vakıfları</h3>
+            <p>Aile destek grupları, eğitim materyalleri ve gönüllülük imkânları sunar.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section id="iletisim" class="alt">
+    <div class="wrap contact-wrap">
+      <div>
+        <h2>Bize ulaşın</h2>
+        <p class="measure">Sorularınız, iş birliği teklifleriniz ya da paylaşmak istediğiniz bir hikayeniz mi var? Aşağıdaki formu doldurun, size dönelim.</p>
+        <p class="form-note">Mesajlar güvenli bir form servisi üzerinden e-posta adresinize iletilir. İlk gönderimde e-posta adresinizi doğrulamanız gerekir.</p>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/SENIN_EPOSTA_ADRESIN" method="POST">
+        <input type="hidden" name="_subject" value="Renkli Zihinler sitesinden yeni mesaj">
+        <input type="hidden" name="_template" value="table">
+        <div class="field">
+          <label for="name">Ad Soyad</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">E-posta</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="message">Mesajınız</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Mesajı gönder</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>Renkli Zihinler</h3>
+        <p>Otizm farkındalığını artırmak için hazırlanmış bir bilgilendirme sitesi.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#otizm-nedir">Otizm Nedir</a></li>
+        <li><a href="#istatistikler">Rakamlarla Otizm</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <p class="footer-bottom">© 2026 Renkli Zihinler. Bu site farkındalık amaçlıdır, tıbbi tavsiye yerine geçmez.</p>
+  </div>
+</footer>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('main-nav');
+  toggle.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
